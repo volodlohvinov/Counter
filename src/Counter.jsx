@@ -19,10 +19,11 @@ const Counter = ({ initialValue }) => {
   return (
     <div>
       <h1>Counter App</h1>
-      <p>Current Value: {count}</p>
-      <button onClick={handleDecrement}>-</button>
-      <button onClick={handleIncrement}>+</button>
-      <button onClick={handleReset}>Reset</button>
+      <p className='current'>Current Value: {count}</p>
+      <button className='button' onClick={handleDecrement}>-</button>
+      <button className='button'  onClick={handleReset}>Reset</button>
+      <button className='button'  onClick={handleIncrement}>+</button>
+      
     </div>
   );
 };
