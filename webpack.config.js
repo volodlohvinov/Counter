@@ -13,7 +13,7 @@ module.exports = {
       filename: 'main.js',
       path: path.resolve(__dirname, 'dist'),
       clean: true,
-      publicPath: '/'
+      publicPath: './'
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -37,6 +37,7 @@ module.exports = {
                   '@babel/preset-env',
                   '@babel/preset-react',
                 ],
+                
               },
             },
           },

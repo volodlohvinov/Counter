@@ -1,38 +1,30 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './Counter.scss'
 
-class Counter extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        count: props.initialValue
-      };
-    }
-  
-    handleIncrement = () => {
-      this.setState((prevState) => ({ count: prevState.count + 1 }));
-    };
-  
-    handleDecrement = () => {
-      this.setState((prevState) => ({ count: prevState.count - 1 }));
-    };
-  
-    handleReset = () => {
-      this.setState({ count: this.props.initialValue });
-    };
-  
-    render() {
-      return (
-        <div>
-          <h1>Counter App</h1>
-          <p className='current'>Current Value: {this.state.count}</p>
-          <button onClick={this.handleDecrement}>-</button>
-          <button onClick={this.handleReset}>Reset</button>
-          <button onClick={this.handleIncrement}>+</button>
-          
-        </div>
-      );
-    }
-  }
-  
-  export default Counter;
+const Counter = ({ initialValue }) => {
+  const [count, setCount] = useState(initialValue);
+
+  const handleIncrement = () => {
+    setCount(count + 1);
+  };
+
+  const handleDecrement = () => {
+    setCount(count - 1);
+  };
+
+  const handleReset = () => {
+    setCount(initialValue);
+  };
+
+  return (
+    <div>
+      <h1>Counter App</h1>
+      <p>Current Value: {count}</p>
+      <button onClick={handleDecrement}>-</button>
+      <button onClick={handleIncrement}>+</button>
+      <button onClick={handleReset}>Reset</button>
+    </div>
+  );
+};
+
+export default Counter;
