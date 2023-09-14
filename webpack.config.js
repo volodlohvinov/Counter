@@ -45,14 +45,24 @@ module.exports = {
             test: /\.scss$/,
             use: [
               MiniCssExtractPlugin.loader,
-              'css-loader',
+              
               {
-                loader: "sass-loader",
+                loader: "css-loader",
                 options: {
+                  esModule: true,
+                  modules: {
+                    namedExport: true,
+                    localIdentName: "[name]__[local]",
+                  },
+                  
+                  },
+                },{
+                  loader: 'sass-loader',
+                  options: {
                   sassOptions: {
                     includePaths: ['node_modules'],
-                  },
-                },
+                  }
+                }
               },
             ],
           },
@@ -77,6 +87,10 @@ module.exports = {
         },
         port: 8060,
         historyApiFallback: true,
+        watchFiles: 'src/**/*',
+        devMiddleware: {
+          writeToDisk: true
+        },
       },
       };
       

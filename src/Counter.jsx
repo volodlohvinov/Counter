@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { Button } from 'antd';
+import { coolButton } from './button.module.scss'
 import './Counter.scss'
+
 
 const Counter = ({ initialValue }) => {
   const [count, setCount] = useState(initialValue);
@@ -19,10 +22,10 @@ const Counter = ({ initialValue }) => {
   return (
     <div>
       <h1>Counter App</h1>
-      <p className='current'>Current Value: {count}</p>
-      <button className='button' onClick={handleDecrement}>-</button>
-      <button className='button'  onClick={handleReset}>Reset</button>
-      <button className='button'  onClick={handleIncrement}>+</button>
+      <p className='Counter__current' >Current Value: {count}</p>
+      <Button className={'button ' + coolButton} onClick={handleDecrement}>-</Button>
+      <Button className={'button ' + coolButton} onClick={handleReset}>Reset</Button>
+      <Button className={'button ' + coolButton}  onClick={handleIncrement}>+</Button>
       
     </div>
   );
